@@ -8,7 +8,7 @@ function ListaLivros() {
   const [listaLivros, setListaLivros] = useState();
 
   useEffect(() => {
-    Axios.get("https://localhost:3001/getCards")
+    Axios.get("http://localhost:3001/api/livros")
       .then((response) => {
         setListaLivros(response.data);
       });
@@ -16,6 +16,7 @@ function ListaLivros() {
 
   return (
     <div className='row m-2 d-flex justify-content-center'>
+      <h1 className='d-flex justify-content-center'>Lista de Livros</h1>
       {typeof listaLivros !== "undefined" && listaLivros.map((value) => {
         return (
           <Cards
@@ -25,8 +26,8 @@ function ListaLivros() {
             id={value.id}
             nome={value.nome}
             editora={value.editora}
-            autor={value.autor}
-            lancamento={value.lancamento}
+            author={value.author}
+            ano={value.ano}
           ></Cards>
         );
       })}

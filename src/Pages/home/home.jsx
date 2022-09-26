@@ -16,19 +16,15 @@ function Home() {
   };
 
   const handleClickButton = () => {
-    Axios.post("http://localhost/register", {
+    Axios.post("http://localhost:3001/api/livros", {
       nome: values.nome,
+      ano: values.ano,
       editora: values.editora,
-      autor: values.autor,
-      lancamento: values.lancamento
+      author: values.author
     }).then((response) => {
       console.log(response)
     });
   };
-
-  const visualizarLivros = () => {
-
-  }
 
   return (
     <div className="App">
@@ -44,18 +40,20 @@ function Home() {
           </div>
           <div className="form-group mt-3">
             <label htmlFor="nomeAutor">Nome Autor(a)</label>
-            <input type="text" name="autor" className="form-control" id="nomeAutor" placeholder="Digite o nome do autor(a)" onChange={handleChangeValues} />
+            <input type="text" name="author" className="form-control" id="nomeAutor" placeholder="Digite o nome do autor(a)" onChange={handleChangeValues} />
           </div>
           <div className="form-group mt-3">
             <label htmlFor="anoLancamento">Ano Lançamento</label>
-            <input type="text" name="lancamento" className="form-control" id="anoLancamento" placeholder="Digite o ano de lançamento" onChange={handleChangeValues} />
-          </div>
-          <div className="d-flex justify-content-center mt-4">
-            <button className="btn btn-primary" onClick={() => handleClickButton()} >Cadastrar</button>
+            <input type="text" name="ano" className="form-control" id="anoLancamento" placeholder="Digite o ano de lançamento" onChange={handleChangeValues} />
           </div>
           <div className="d-flex justify-content-center mt-4">
             <Link to="/lista">
-              <button className="btn btn-success" onClick={() => visualizarLivros()} >Visualizar</button>
+              <button className="btn btn-primary" onClick={() => handleClickButton()} >Cadastrar</button>
+            </Link>
+          </div>
+          <div className="d-flex justify-content-center mt-4">
+            <Link to="/lista">
+              <button className="btn btn-success">Visualizar</button>
             </Link>
           </div>
         </div>
