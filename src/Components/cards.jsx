@@ -25,10 +25,10 @@ export default function Cards(props) {
     return (
         <div className="card m-2 col-4 border border-primary">
             <div className="card-body">
-                <h4 className="card-title">{props.nome}</h4>
-                <p className="card-text">{props.editora}</p>
-                <p className="card-text">{props.author}</p>
-                <h5 className="card-text">{props.ano}</h5>
+                <h4 className="card-title">{livroValue.nome}</h4>
+                <p className="card-text">{livroValue.editora}</p>
+                <p className="card-text">{livroValue.author}</p>
+                <h5 className="card-text">{livroValue.ano}</h5>
                 <button className="btn btn-danger w-100" onClick={() => handleDeleteLivro()}>Delete</button>
             </div>
         </div>

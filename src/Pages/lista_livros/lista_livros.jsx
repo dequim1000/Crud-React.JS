@@ -3,6 +3,8 @@ import React, { useState } from 'react';
 import Axios from 'axios';
 import Cards from '../../Components/cards';
 import { useEffect } from 'react';
+import { Link } from 'react-router-dom';
+
 
 function ListaLivros() {
   const [listaLivros, setListaLivros] = useState();
@@ -31,6 +33,11 @@ function ListaLivros() {
           ></Cards>
         );
       })}
+      <div className="d-flex justify-content-center mt-4">
+        <Link to="/">
+          <button className="btn btn-success">Voltar</button>
+        </Link>
+      </div>
     </div>
   );
 }
